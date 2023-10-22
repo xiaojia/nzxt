@@ -56,15 +56,15 @@ const renderHardware = (data) => {
     }
 }
 
-const renderBackground = () => {
+const renderBackground = (image) => {
 
     let oldBackground = document.getElementById('background');
     let background = document.createElement('div');
-    let src = `../background/1%20(${Math.floor(Math.random() * (1 - 490)) + 490}).jpg`;
+    let src = image || `../background/1 (${Math.floor(Math.random() * (1 - 490)) + 490}).jpg`;
     let img = new Image();
 
     background.classList.add('background');
-    background.style.backgroundImage = `url(${src.replace(/\(/ig, '\\(').replace(/\)/ig, '\\)')})`;
+    background.style.backgroundImage = `url(${src.replace(/\(/ig, '\\(').replace(/\)/ig, '\\)').replace(/\s/ig, '%20')})`;
     background.style.zIndex = 1;
     background.id = 'background'
 
@@ -102,9 +102,11 @@ const renderWeather = (data) => {
     });
 }
 
-const mainBackground = () => {
-    renderBackground();
-    setInterval(renderBackground, 60 * 1000);
+const mainBackground = (image) => {
+    renderBackground(image);
+    if (!image) {
+        setInterval(renderBackground, 60 * 1000);
+    }
 }
 
 const mainTime = () => {
@@ -140,7 +142,7 @@ const mainHardware = () => {
 
 }
 
-mainBackground();
+mainBackground('./background/1 (1).webp');
 mainTime();
 mainWeather();
 mainHardware();
