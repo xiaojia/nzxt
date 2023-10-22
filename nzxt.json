@@ -1,0 +1,80 @@
+{
+    "cpus": [
+        {
+            "name": "Ryzen 9 7950X",
+            "manufacturer": "AMD",
+            "codeName": "Raphael",
+            "socket": "Socket AM5 (LGA1718)",
+            "load": 0.004368910565972328,
+            "numCores": 16,
+            "numThreads": 32,
+            "temperature": 55.625,
+            "minTemperature": null,
+            "maxTemperature": null,
+            "frequency": 5500,
+            "minFrequency": 2057,
+            "maxFrequency": 5700,
+            "stockFrequency": 4501,
+            "fanSpeed": null,
+            "minFanSpeed": null,
+            "maxFanSpeed": null,
+            "tdp": 170,
+            "power": 50.162635803222656
+        }
+    ],
+    "gpus": [
+        {
+            "name": "NVIDIA GeForce RTX 4080",
+            "load": 0.019999999552965164,
+            "temperature": 39,
+            "minTemperature": 26,
+            "maxTemperature": 63,
+            "frequency": 210,
+            "minFrequency": 210,
+            "maxFrequency": 2850,
+            "stockFrequency": null,
+            "fanSpeed": 758,
+            "minFanSpeed": 754,
+            "maxFanSpeed": 3080,
+            "power": 43.590999603271484
+        },
+        {
+            "name": "Bigmax Virtual Monitor",
+            "load": null,
+            "temperature": null,
+            "minTemperature": null,
+            "maxTemperature": null,
+            "frequency": null,
+            "minFrequency": null,
+            "maxFrequency": null,
+            "stockFrequency": null,
+            "fanSpeed": null,
+            "minFanSpeed": null,
+            "maxFanSpeed": null,
+            "power": null
+        }
+    ],
+    "ram": {
+        "totalSize": 65268,
+        "inUse": 13076,
+        "modules": [
+            {
+                "kind": "DDR5",
+                "size": 32768,
+                "model": "G.Skill F5-6000J3040G32G",
+                "frequency": 2400,
+                "stockFrequency": 2400
+            },
+            {
+                "kind": "DDR5",
+                "size": 32768,
+                "model": "G.Skill F5-6000J3040G32G",
+                "frequency": 2400,
+                "stockFrequency": 2400
+            }
+        ]
+    },
+    "kraken": {
+        "liquidTemperature": 37
+    }
+}
