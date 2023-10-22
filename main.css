@@ -122,10 +122,6 @@ body {
 }
 
 .rotate-f {
-    -moz-transition: all 1s ease-in-out;
-    -ms-transition: all 1s ease-in-out;
-    -o-transition: all 1s ease-in-out;
-    transition: all 1s ease-in-out;
     left: 0;
 }
 
@@ -136,15 +132,6 @@ body {
     height: 100%;
     width: 50%;
     left: 0%;
-    -webkit-transition: all 1s ease-in-out;
-    -moz-transition: all 1s ease-in-out;
-    -ms-transition: all 1s ease-in-out;
-    -o-transition: all 1s ease-in-out;
-    transition: all 1s ease-in-out;
-    -moz-transform-origin: 100% 50%;
-    -webkit-transform-origin: 100% 50%;
-    -o-transform-origin: 100% 50%;
-    -ms-transform-origin: 100% 50%;
     transform-origin: 100% 50%;
 }
 
@@ -164,8 +151,6 @@ body {
     left: 50%;
     top: 50%;
     transform: translate3d(-50%, -50%, 0px);
-    -webkit-transform: translate3d(-50%, -50%, 0px);
-    -moz-transform: translate3d(-50%, -50%, 0px);
 }
 
 .rotate_wrap {
@@ -174,4 +159,5 @@ body {
 
 .rotate_wrap div {
     display: inline-block;
+    margin-left: 5px;
 }

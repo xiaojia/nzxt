@@ -42,7 +42,7 @@
 					t.trans(dom1, t.s.speed / 1000); t.trans(dom2, t.s.speed / 1000); t.trans(dom3, t.s.speed / 1000);
 					t.trans2(dom1, num); t.trans2(dom2, num);
 					t.trans2(dom3, num2);
-				}, 30);
+				}, 16);
 			});
 		},
 		trans: function (o, s) {

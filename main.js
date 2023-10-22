@@ -15,8 +15,8 @@ window.nzxt = {
 const initHardware = () => {
 
     const width = 70;
-    const bgColor = 'rgba(0,0,0,0.45)';
-    const rotateColor = '#FF9600';
+    const bgColor = '#000000';
+    const rotateColor = '#ff9600';
     const number = 1;
     const show = '';
 
