@@ -28,7 +28,7 @@ body {
     width: 100%;
     align-items: center;
     z-index: 5;
-    background: rgba(0, 0, 0, 0.85);
+    background: rgba(0, 0, 0, 1);
     color: #fff;
     display: flex;
     justify-content: center;
@@ -76,6 +76,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-weight: bold;
 }
 
 .wrap>.time>.ram {
@@ -155,7 +156,7 @@ body {
     text-align: center;
     line-height: 140px;
     background: #fff;
-    font-size: 24px;
+    font-size: 28px;
     color: #46494D;
     height: 90%;
     width: 90%;

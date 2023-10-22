@@ -14,9 +14,9 @@ window.nzxt = {
 
 const initHardware = () => {
 
-    const width = 60;
+    const width = 70;
     const bgColor = 'rgba(0,0,0,0.45)';
-    const rotateColor = '#D600BF';
+    const rotateColor = '#FF9600';
     const number = 1;
     const show = '';
 
@@ -56,11 +56,11 @@ const renderBackground = () => {
 
     let oldBackground = document.getElementById('background');
     let background = document.createElement('div');
-    let src = `../background/${Math.round(Math.random() * 171 + 1)}.jpg`;
+    let src = `../background/1%20(${Math.floor(Math.random() * (1 - 490)) + 490}).jpg`;
     let img = new Image();
 
     background.classList.add('background');
-    background.style.backgroundImage = `url(../background/${Math.round(Math.random() * 171 + 1)}.jpg)`;
+    background.style.backgroundImage = `url(${src.replace(/\(/ig, '\\(').replace(/\)/ig, '\\)')})`;
     background.style.zIndex = 1;
     background.id = 'background'
 
@@ -136,7 +136,7 @@ const mainHardware = () => {
 
 }
 
-// mainBackground();
+mainBackground();
 mainTime();
 mainWeather();
 mainHardware();
