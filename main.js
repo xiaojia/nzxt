@@ -39,13 +39,17 @@ const initHardware = () => {
 }
 
 const renderHardware = (data) => {
+    // if (location.search.indexOf('kraken=1') === -1) {
+    //     document.body.innerHTML = `<pre>${JSON.stringify(data, null, 4)}</pre>`;
+    //     document.body.style.color = '#fff';
+    // }
     if (data?.cpus?.length && data?.gpus?.length) {
         rotate('#cpu .circle').init({
-            number: (data.cpus[0].load * 100) || 0.1,
+            number: data.cpus[0].load * 100,
             show: parseInt(data.cpus[0].temperature)
         });
         rotate('#gpu .circle').init({
-            number: (data.gpus[0].load * 100) || 0.1,
+            number: data.gpus[0].load * 100,
             show: parseInt(data.gpus[0].temperature)
         });
         ramDOM.style.width = (data.ram.inUse / data.ram.totalSize * 100) + '%';

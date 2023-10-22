@@ -17,8 +17,7 @@
 			this.extend(this.s, o);
 			this.create();
 			;[].forEach.call(this.dom, function (o) {
-				var n = t.s.number ? t.s.number : o.dataset.num;
-				if (!n) { alert('no number'); return }
+				var n = (t.s.number ? t.s.number : o.dataset.num) || 1;
 				var num = 'rotate(' + n * 1.8 + 'deg)';
 				var s = 4;
 				if (+n == 0 && n < 96) { s = 0; };
@@ -38,11 +37,11 @@
 				};
 				dom1.style.clip = dom4.style.clip = 'rect(0, ' + o.offsetWidth + 'px, ' + o.offsetWidth + 'px,' + o.offsetWidth / 2 + 'px)';
 
-				setTimeout(function () {
+				requestAnimationFrame(function () {
 					t.trans(dom1, t.s.speed / 1000); t.trans(dom2, t.s.speed / 1000); t.trans(dom3, t.s.speed / 1000);
 					t.trans2(dom1, num); t.trans2(dom2, num);
 					t.trans2(dom3, num2);
-				}, 16);
+				});
 			});
 		},
 		trans: function (o, s) {
