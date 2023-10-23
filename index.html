@@ -6,22 +6,24 @@
 </head>
 
 <body>
-    <div class="wrap">
-        <div class="time">
-            <div id="time"></div>
-            <div id="ram" class="ram"></div>
-        </div>
-        <div class="hardware">
-            <div class="rotate_wrap" id="cpu">
-                <div class="circle"></div>
+    <div class="wrap" id="wrap">
+        <div class="info-wrap">
+            <div class="time">
+                <div id="time"></div>
+                <div id="ram" class="ram"></div>
             </div>
-            <div class="rotate_wrap" id="gpu">
-                <div class="circle"></div>
+            <div class="hardware">
+                <div class="rotate_wrap" id="cpu">
+                    <div class="circle"></div>
+                </div>
+                <div class="rotate_wrap" id="gpu">
+                    <div class="circle"></div>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="weather-wrap">
-        <div id="weather" class="weather"></div>
+        <div class="weather-wrap">
+            <div id="weather" class="weather"></div>
+        </div>
     </div>
     <script src="./rotate.js"></script>
     <script src="./main.js"></script>

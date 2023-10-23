@@ -1,3 +1,4 @@
+const wrapDOM = document.getElementById('wrap');
 const timeDOM = document.getElementById('time');
 const weatherDOM = document.getElementById('weather');
 const cpuDOM = document.getElementById('cpu');
@@ -10,50 +11,44 @@ window.nzxt = {
             renderHardware(data);
         }
     }
-};
-
-const initHardware = () => {
-
-    const width = 70;
-    const bgColor = '#000000';
-    const rotateColor = '#ff9600';
-    const number = 1;
-    const show = '';
-
-    rotate('#cpu .circle').init({
-        number: number,
-        show: show,
-        rotateColor: rotateColor,
-        bgColor: bgColor,
-        width: width
-    });
-
-    rotate('#gpu .circle').init({
-        number: number,
-        show: show,
-        rotateColor: rotateColor,
-        bgColor: bgColor,
-        width: width
-    });
-
 }
 
 const renderHardware = (data) => {
+
     // if (location.search.indexOf('kraken=1') === -1) {
-    //     document.body.innerHTML = `<pre>${JSON.stringify(data, null, 4)}</pre>`;
+    //     document.body.innerHTML = `<pre>${JSON.stringify(window.nzxt, null, 4)}</pre>`;
     //     document.body.style.color = '#fff';
     // }
+    const width = 70;
+    const bgColor = '#000000';
+    const rotateColor = '#ff9600';
+
     if (data?.cpus?.length && data?.gpus?.length) {
+
+        wrapDOM.style.display = 'block';
+        wrapDOM.style.width = (window.nzxt?.v1?.width || 320) + 'px';
+        wrapDOM.style.height = (window.nzxt?.v1?.height || 320) + 'px';
+
         rotate('#cpu .circle').init({
             number: data.cpus[0].load * 100,
-            show: parseInt(data.cpus[0].temperature)
+            show: parseInt(data.cpus[0].temperature),
+            rotateColor: rotateColor,
+            bgColor: bgColor,
+            width: width
         });
+
         rotate('#gpu .circle').init({
             number: data.gpus[0].load * 100,
-            show: parseInt(data.gpus[0].temperature)
+            show: parseInt(data.gpus[0].temperature),
+            rotateColor: rotateColor,
+            bgColor: bgColor,
+            width: width
         });
+
         ramDOM.style.width = (data.ram.inUse / data.ram.totalSize * 100) + '%';
+
     }
+
 }
 
 const renderBackground = (image) => {
@@ -68,14 +63,14 @@ const renderBackground = (image) => {
     background.style.zIndex = 1;
     background.id = 'background'
 
-    document.body.appendChild(background);
+    wrapDOM.appendChild(background);
 
     img.src = src;
     img.onload = () => {
         background.style.opacity = 1;
         setTimeout(() => {
             if (oldBackground) {
-                document.body.removeChild(oldBackground);
+                wrapDOM.removeChild(oldBackground);
             }
         }, 1000);
     }
@@ -120,9 +115,6 @@ const mainWeather = () => {
 }
 
 const mainHardware = () => {
-
-    initHardware();
-
     if (location.search.indexOf('kraken=1') === -1) {
         renderHardware({
             cpus: [{
@@ -139,7 +131,6 @@ const mainHardware = () => {
             }
         });
     }
-
 }
 
 mainBackground('./background/1 (1).webp');
