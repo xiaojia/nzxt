@@ -19,6 +19,7 @@ const renderHardware = (data) => {
     //     document.body.innerHTML = `<pre>${JSON.stringify(window.nzxt, null, 4)}</pre>`;
     //     document.body.style.color = '#fff';
     // }
+
     const width = 70;
     const bgColor = '#000000';
     const rotateColor = '#ff9600';
@@ -115,22 +116,69 @@ const mainWeather = () => {
 }
 
 const mainHardware = () => {
-    if (location.search.indexOf('kraken=1') === -1) {
+
+    if (location.search.indexOf('kraken=1') > -1) {
+        return;
+    }
+
+    let random = function (min, max) {
+        if (max == null) {
+            max = min;
+            min = 0;
+        }
+        return min + Math.floor(Math.random() * (max - min + 1));
+    };
+
+    let createNumber = (min, max, current) => {
+
+        let range = max / 20;
+        let number = current + random(-range, range);
+
+        if (number > max) {
+            number = max;
+        }
+
+        if (number < min) {
+            number = min;
+        }
+
+        return number;
+
+    }
+
+    let cpuTemperature = 50;
+    let cpuLoad = 10;
+    let gpuTemperature = 50;
+    let gpuLoad = 40;
+    let ramInUse = 13076;
+
+    setInterval(() => {
+
+        cpuTemperature = createNumber(10, 90, cpuTemperature);
+        cpuLoad = createNumber(0, 100, cpuLoad);
+        gpuTemperature = createNumber(10, 90, gpuTemperature);
+        gpuLoad = createNumber(0, 100, gpuLoad);
+        ramInUse = createNumber(10000, 65268, ramInUse);
+
+        console.log(cpuLoad, gpuLoad);
+
         renderHardware({
             cpus: [{
-                load: 0.004368910565972328,
-                temperature: 60
+                load: cpuLoad / 100,
+                temperature: cpuTemperature
             }],
             gpus: [{
-                load: 0.004368910565972328,
-                temperature: 50
+                load: gpuLoad / 100,
+                temperature: gpuTemperature
             }],
             ram: {
                 totalSize: 65268,
-                inUse: 13076,
+                inUse: ramInUse,
             }
         });
-    }
+
+    }, 1000);
+
 }
 
 mainBackground('./background/1 (1).webp');
