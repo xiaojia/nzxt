@@ -179,7 +179,7 @@ const mainHardware = () => {
 
 }
 
-mainBackground('./background/1 (1).webp');
+mainBackground('./background/1 (4).webp');
 mainTime();
 mainWeather();
 mainHardware();
