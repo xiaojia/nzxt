@@ -160,8 +160,6 @@ const mainHardware = () => {
         gpuLoad = createNumber(0, 100, gpuLoad);
         ramInUse = createNumber(10000, 65268, ramInUse);
 
-        console.log(cpuLoad, gpuLoad);
-
         renderHardware({
             cpus: [{
                 load: cpuLoad / 100,
