@@ -21,7 +21,7 @@ const renderHardware = (data) => {
     // }
 
     const width = 70;
-    const bgColor = '#000000';
+    const bgColor = 'rgba(0, 0, 0, 0.75)';
     const rotateColor = '#ff9600';
 
     if (data?.cpus?.length && data?.gpus?.length) {
@@ -56,7 +56,7 @@ const renderBackground = (image) => {
 
     let oldBackground = document.getElementById('background');
     let background = document.createElement('div');
-    let src = image || `./background/a${Math.floor(Math.random() * (1 - 13)) + 13}.webp`;
+    let src = image;
     let img = new Image();
 
     background.classList.add('background');
@@ -98,11 +98,19 @@ const renderWeather = (data) => {
     });
 }
 
-const mainBackground = (image) => {
-    renderBackground(image);
-    if (!image) {
-        setInterval(renderBackground, 60 * 1000);
-    }
+const createImageUrl = () => {
+    // return `../background/a${Math.floor(Math.random() * (1 - 490)) + 490}.jpg`;
+    return `./background/a${Math.floor(Math.random() * (1 - 13)) + 13}.webp`;
+}
+
+const mainBackground = () => {
+
+    renderBackground(createImageUrl());
+
+    setInterval(() => {
+        renderBackground(createImageUrl());
+    }, 60 * 1000);
+
 }
 
 const mainTime = () => {
