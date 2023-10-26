@@ -179,7 +179,7 @@ const mainHardware = () => {
 
 }
 
-mainBackground('./background/1 (55).jpg');
+mainBackground();
 mainTime();
 mainWeather();
 mainHardware();
