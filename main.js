@@ -56,7 +56,7 @@ const renderBackground = (image) => {
 
     let oldBackground = document.getElementById('background');
     let background = document.createElement('div');
-    let src = image || `../background/1 (${Math.floor(Math.random() * (1 - 490)) + 490}).jpg`;
+    let src = image || `./background/a${Math.floor(Math.random() * (1 - 13)) + 13}.webp`;
     let img = new Image();
 
     background.classList.add('background');
@@ -179,7 +179,7 @@ const mainHardware = () => {
 
 }
 
-mainBackground('./background/1 (4).webp');
+mainBackground('./background/1 (55).jpg');
 mainTime();
 mainWeather();
 mainHardware();
